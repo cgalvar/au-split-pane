@@ -1,12 +1,12 @@
 {
-  "name": "au-split-pane",
+  "name": "@cgalvar/au-split-pane",
   "description": "An Aurelia plugin project.",
   "version": "0.1.0",
   "repository": {
     "type": "???",
     "url": "???"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "aurelia-bootstrapper": "^2.3.2",
     "aurelia-animator-css": "^1.0.4",
