@@ -1,0 +1,74 @@
+<template>
+
+    <require from="./split-pane.css"></require> 
+
+    <section if.bind="_enable" id = 'split-pane-menu' class="${menuActive? 'active' : ''}"> 
+
+        <div id = 'split-pane-title'>
+            
+
+            <a href="#/${title.href}" if.bind="title.href">
+                ${title.name}
+            </a>
+
+            <span if.bind="!title.href">${title}</span>
+
+
+            <i class="material-icons close-menu" click.delegate="menuActive = !menuActive">close</i>
+            
+        </div>
+
+        <ul>
+            
+            <li repeat.for="option of options">
+
+                <div class="option-title" if.bind="option.type == 'title'">
+                    ${option.text}
+                </div>
+                
+                <div
+                    if.bind="option.type == 'link'"
+                >
+                    
+                    <a             
+                        class="split-pane-link"
+                        href="${option.serverRoute? '' : '#'}/${option.href}"
+                    >
+                    <i class="material-icons-outlined"
+                        if.bind="option.icon"
+                    >
+                        ${option.icon}
+                    </i>
+                    <span>
+                        ${option.text}</a>
+                    </span>
+                </div>
+            </li>
+
+        </ul>
+
+
+    </section>
+
+    <section id = 'split-pane-contenido'>
+
+        <div if.bind="_enable" id="split-pane-contenido-title">
+            <i class="material-icons open-menu" click.delegate="menuActive = !menuActive">menu</i>
+
+            <hgroup>
+                
+                <h1>
+                    ${contenidoTitle}
+                </h1>
+
+            </hgroup>
+
+        </div>
+
+        <router-view>
+
+        </router-view>
+
+    </section>
+
+</template>
