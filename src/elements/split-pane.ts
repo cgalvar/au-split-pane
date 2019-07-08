@@ -1,5 +1,8 @@
 import { SplitPaneBindableProperties, category, option } from "./helpers";
+import { autoinject } from "aurelia-framework";
+import { EventAggregator } from "aurelia-event-aggregator";
 
+@autoinject
 export class SplitPane extends SplitPaneBindableProperties{
     
     private _enable: boolean = true;
@@ -7,12 +10,13 @@ export class SplitPane extends SplitPaneBindableProperties{
 
     categories : category[] = [];
 
-    constructor(){
+    constructor(private events:EventAggregator){
         super()
     }
 
-    activate(){
-
+    attached(){
+        debugger;
+        this.events.publish('split-pane-attached', this);
     }
 
     disable(){
@@ -35,7 +39,7 @@ export class SplitPane extends SplitPaneBindableProperties{
         this.title = title;
     }
 
-    setContenidoTitle(title:string){
+    setContentTitle(title:string){
         this.contenidoTitle = title;
     }
 

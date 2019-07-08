@@ -1,27 +1,22 @@
-import { GetViewModelFromRouter } from "../services/getViewModelFromRouter";
 import { autoinject } from "aurelia-framework";
-import { SplitPane } from "elements/split-pane";
+import { SplitPaneHelper } from "elements/helpers";
+
+
 
 @autoinject
 export class home{
-    splitPane: SplitPane;
+    
 
-   constructor(private getViewModel:GetViewModelFromRouter){
+   constructor(private splitPaneHelper:SplitPaneHelper){
 
    }
 
     activate(){
-        this.setSplitPane();
+        
     }
 
-    async setSplitPane(){
-        
-        try {
-            this.splitPane = await this.getViewModel.exec('splitPane');
-            this.splitPane.setContenidoTitle('hola')
-        } catch (error) {
-            alert(error);
-        }
+    attached(){
+        this.splitPaneHelper.setContentTitle('Hola')
     }
 
 }

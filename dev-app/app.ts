@@ -29,8 +29,6 @@ export class App {
 
     this.splitPaneSetting.addLink('Internet', 'hola', 'public')
 
-    
-
     this.splitPaneSetting.title = 'Hello';
 
   }

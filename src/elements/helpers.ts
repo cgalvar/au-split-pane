@@ -1,4 +1,6 @@
-import {bindable} from 'aurelia-framework';
+import {bindable, autoinject} from 'aurelia-framework';
+import { SplitPane } from './split-pane';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 
 export interface option{
@@ -43,5 +45,45 @@ export class SplitPaneBindableProperties{
     addOptions(options:option[]){
         this.options = this.options.concat(options);
     }
+
+}
+
+@autoinject
+export class SplitPaneHelper {
+    splitPane: SplitPane;
+    
+    constructor(private events:EventAggregator){
+        this.setSplitPane();
+    }
+
+    private async setSplitPane(){  
+            
+        this.events.subscribeOnce('split-pane-attached', (splitPane)=>{
+            this.splitPane = splitPane;
+        })
+                
+    }
+
+    async setContentTitle(title:string){
+        await this.isItAttached();
+        this.splitPane.setContentTitle(title);
+    }
+
+    isItAttached(){
+
+        return new Promise((next, error)=>{
+            if (!this.splitPane) {
+                this.events.subscribeOnce('split-pane-attached', (splitPane)=>{
+                    this.splitPane = splitPane;
+                    next();
+                })
+            }
+            else
+                next();
+
+        });
+
+    }
+
 
 }
