@@ -69,6 +69,11 @@ export class SplitPaneHelper {
         this.splitPane.setContentTitle(title);
     }
 
+    async getSplitPane(){
+        await this.isItAttached();
+        return this.splitPane;
+    }
+
     isItAttached(){
 
         return new Promise((next, error)=>{

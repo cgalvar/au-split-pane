@@ -8,6 +8,15 @@ split-pane{
     height: 100%;
 }
 
+split-pane router-view{
+    width: 100%;
+    margin-top: 50px;
+    display: block;
+    padding: .5rem;
+    box-sizing: border-box;
+    height: calc(100% - 50px);
+}
+
 split-pane *{
     margin: 0;
     padding: 0;
