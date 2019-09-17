@@ -1,5 +1,4 @@
 import { autoinject } from "aurelia-framework";
-import { SplitPaneHelper } from "elements/helpers";
 
 
 
@@ -7,7 +6,7 @@ import { SplitPaneHelper } from "elements/helpers";
 export class home{
     
 
-   constructor(private splitPaneHelper:SplitPaneHelper){
+   constructor(){
 
    }
 
@@ -16,7 +15,7 @@ export class home{
     }
 
     attached(){
-        this.splitPaneHelper.setContentTitle('Hola')
+        
     }
 
 }

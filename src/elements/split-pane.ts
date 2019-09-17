@@ -1,4 +1,4 @@
-import { SplitPaneBindableProperties, category, option } from "./helpers";
+import { SplitPaneBindableProperties, category, option } from "../services/helpers";
 import { autoinject } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
 

@@ -7,4 +7,5 @@ export function configure(config: FrameworkConfiguration) {
   ]);
 }
 
-export * from "./elements/helpers";
+export * from "./services/helpers";
+export * from "./services/get-split-pane";
