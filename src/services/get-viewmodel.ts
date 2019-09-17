@@ -7,7 +7,7 @@ export class GetViewmodel {
         this.setViewmodel();
     }
     
-    private setViewmodel(){
+    private setViewmodel():Promise<any>{
         return new Promise((next, error)=>{
             if (!this.viewmodel) {
                 this.events.subscribeOnce(`${this.viewModelName}-attached`, (viewmodel)=>{
